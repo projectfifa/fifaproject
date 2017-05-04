@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: url('../img/body_background.png') no-repeat;
+    background-size: 100%;
+}
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: #DDDDDA;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+.row-spaced{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.acp{
+    background: #000;
+    position: absolute;
+    right: 3%;
+    top: 1%;
+}
+.acp a{
+    color: #888;
+}
+.banner{
+    margin: 0 0 0 3%;
+}
+nav li {
+    position: relative;
+    width: 100%;
+}
+li img {
+    position:absolute;
+    top:0;
+    left:0;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+}
+li:hover .front {
+    opacity: 0;
+}
