@@ -40,15 +40,28 @@
         
     <?php
     require('dbconnect.php');
+    require('showList.php');
 
-    $sql = "SELECT * FROM 'tbl_players'";
-    var_dump($sql);
-    $teams = $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
-    var_dump($teams);
+    /*$teamsQuery = "SELECT * FROM `tbl_teams`";
+    $playersQuery = "SELECT * FROM `tbl_players`";
 
+    $teams = $conn->query($teamsQuery)->fetchAll(PDO::FETCH_ASSOC);
+    $players = $conn->query($playersQuery)->fetchAll(PDO::FETCH_ASSOC);
+    
+    var_dump($teamsQuery);
+    var_dump($playersQuery);*/
+
+    $playersQuery = "SELECT id, first_name, last_name, team_id, created_at FROM `tbl_players`";
+    $players = $conn->query($playersQuery)->fetchAll(PDO::FETCH_ASSOC);
+    var_dump($players);
+    $showList = new showList("Players", $players);
+
+
+    /*$count = 0;
     foreach ($teams as $team) {
-        # code...
-    }
+        echo "yay".$count;    
+        $count++;
+    }*/
 
     ?>
     </div>

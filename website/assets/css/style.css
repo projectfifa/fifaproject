@@ -79,16 +79,12 @@ background: linear-gradient(#4c565b 5%, #668399 91%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#668399', endColorstr='#4c565b',GradientType=0 );
 }
 
-.showListContent {
-    
-}
-
 .row-list {
     background-color: white;
-    height: 40px;
-    padding-left: 30px;
+    padding: 10px 40px 10px 40px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 .row-list:nth-child(odd) {
     background-color: #dedede;
