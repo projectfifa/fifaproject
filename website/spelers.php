@@ -36,5 +36,21 @@
             </nav>
         </div>
     </header>
+    <div class="content">
+        
+    <?php
+    require('dbconnect.php');
+
+    $sql = "SELECT * FROM 'tbl_players'";
+    var_dump($sql);
+    $teams = $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
+    var_dump($teams);
+
+    foreach ($teams as $team) {
+        # code...
+    }
+
+    ?>
+    </div>
 
 <?php require(realpath(__DIR__) . '/templates/footer.php');
