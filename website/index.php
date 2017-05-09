@@ -1,5 +1,9 @@
 <?php 
-    require(realpath(__DIR__) . '/templates/header.php');
+session_start();
+$_SESSION['page']="index";
+require(realpath(__DIR__) . '/templates/header.php'); 
+
+?>
     require('showList.php');
 
 

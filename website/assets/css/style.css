@@ -13,9 +13,15 @@ a{
     text-decoration: none;
     color: #DDDDDA;
 }
+
+
 .container{
     width: 80%;
     margin: 0 auto;
+}
+.content {
+    margin: 300px auto 0;
+    width: 80%;
 }
 .row-spaced{
     display: -webkit-flex;
@@ -43,7 +49,7 @@ a{
     display: flex;
     justify-content: center;
 }
-nav li {
+.row-spaced li {
     position: relative;
     width: 100%;
 }
@@ -63,9 +69,6 @@ li:hover .front {
    DISPLAY LIST
    ========================================================================== */
 
-.content {
-    margin: 300px 20% 300px 20%;
-}
 
 /* ----------------------------------- LIST HEADER ------------------------- */
 

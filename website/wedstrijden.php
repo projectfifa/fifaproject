@@ -1,4 +1,9 @@
-<?php require(realpath(__DIR__) . '/templates/header.php'); ?>
+<?php 
+session_start();
+$_SESSION['page']="games";
+require(realpath(__DIR__) . '/templates/header.php'); 
+
+?>
 
     
 
