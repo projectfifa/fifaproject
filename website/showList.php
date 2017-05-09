@@ -34,60 +34,7 @@ class showList {
 
 
 
-		/*					VOORBEELD OUTPUT HTML*/
-		echo '
-		<div class="showListHeader"> Title </div>
-		<div class="showListContent">
-			<div class="row-list">
-				<div> item1 </div>
-				<div> item2 </div>
-				<div> item3 </div>
-				<div> item1 </div>
-				<div> item2 </div>
-				<div> item3 </div>
-			</div>
-			<div class="row-list">
-				<div> item1 </div>
-				<div> item2 </div>
-				<div> item3 </div>
-				<div> item1 </div>
-				<div> item2 </div>
-				<div> item3 </div>
-			</div>
-			<div class="row-list">
-				<div> item1 </div>
-				<div> item2 </div>
-				<div> item3 </div>
-				<div> item1 </div>
-				<div> item2 </div>
-				<div> item3 </div>
-			</div>
-			<div class="row-list">
-				<div> item1 </div>
-				<div> item2 </div>
-				<div> item3 </div>
-				<div> item1 </div>
-				<div> item2 </div>
-				<div> item3 </div>
-			</div>
-			<div class="row-list">
-				<div> item1 </div>
-				<div> item2 </div>
-				<div> item3 </div>
-				<div> item1 </div>
-				<div> item2 </div>
-				<div> item3 </div>
-			</div>
-			<div class="row-list">
-				<div> item1 </div>
-				<div> item2 </div>
-				<div> item3 </div>
-				<div> item1 </div>
-				<div> item2 </div>
-				<div> item3 </div>
-			</div>
-		</div>
-		<div class="showListFooter"></div>';
+		
 		
 	}
 }

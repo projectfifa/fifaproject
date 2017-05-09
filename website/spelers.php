@@ -1,4 +1,8 @@
-<?php require(realpath(__DIR__) . '/templates/header.php'); ?>
+<?php 
+require(realpath(__DIR__) . '/templates/header.php'); 
+require('dbconnect.php');
+require('showList.php');
+?>
 
     <header>
         <div class="acp">
@@ -37,31 +41,71 @@
         </div>
     </header>
     <div class="content">
-        
+        <div class="showListHeader"> Title </div>
+        <div class="showListContent">
+            <div class="row-list">
+                <div> item1 </div>
+                <div> item2 </div>
+                <div> item3 </div>
+                <div> item1 </div>
+                <div> item2 </div>
+                <div> item3 </div>
+            </div>
+            <div class="row-list">
+                <div> item1 </div>
+                <div> item2 </div>
+                <div> item3 </div>
+                <div> item1 </div>
+                <div> item2 </div>
+                <div> item3 </div>
+            </div>
+            <div class="row-list">
+                <div> item1 </div>
+                <div> item2 </div>
+                <div> item3 </div>
+                <div> item1 </div>
+                <div> item2 </div>
+                <div> item3 </div>
+            </div>
+            <div class="row-list">
+                <div> item1 </div>
+                <div> item2 </div>
+                <div> item3 </div>
+                <div> item1 </div>
+                <div> item2 </div>
+                <div> item3 </div>
+            </div>
+            <div class="row-list">
+                <div> item1 </div>
+                <div> item2 </div>
+                <div> item3 </div>
+                <div> item1 </div>
+                <div> item2 </div>
+                <div> item3 </div>
+            </div>
+            <div class="row-list">
+                <div> item1 </div>
+                <div> item2 </div>
+                <div> item3 </div>
+                <div> item1 </div>
+                <div> item2 </div>
+                <div> item3 </div>
+            </div>
+        </div>
+        <div class="showListFooter"></div>
     <?php
-    require('dbconnect.php');
-    require('showList.php');
-
-    /*$teamsQuery = "SELECT * FROM `tbl_teams`";
-    $playersQuery = "SELECT * FROM `tbl_players`";
-
-    $teams = $conn->query($teamsQuery)->fetchAll(PDO::FETCH_ASSOC);
-    $players = $conn->query($playersQuery)->fetchAll(PDO::FETCH_ASSOC);
     
-    var_dump($teamsQuery);
-    var_dump($playersQuery);*/
 
-    $playersQuery = "SELECT id, first_name, last_name, team_id, created_at FROM `tbl_players`";
-    $players = $conn->query($playersQuery)->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($players);
-    $showList = new showList("Players", $players);
+    $teamsQuery = "SELECT id, poule_id, name FROM `tbl_teams`";
+    $teams = $conn->query($teamsQuery)->fetchAll(PDO::FETCH_ASSOC);
 
 
-    /*$count = 0;
-    foreach ($teams as $team) {
-        echo "yay".$count;    
-        $count++;
-    }*/
+    foreach ($teams as $key) {
+        $playersQuery = "SELECT id, first_name, last_name, student_id, created_at FROM `tbl_players` WHERE team_id = ".$key['id'];
+        $players = $conn->query($playersQuery)->fetchAll(PDO::FETCH_ASSOC);
+        $showList = new showList($key['name'], $players);
+    }
+
 
     ?>
     </div>
