@@ -39,7 +39,9 @@ a{
     color: #888;
 }
 .banner{
-    margin: 0 0 0 3%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 nav li {
     position: relative;
@@ -112,12 +114,12 @@ li:hover .front {
     font-size: 20px;
     font-weight: 600;
     letter-spacing: 1px;
+    text-transform: capitalize;
 }
 
 
 .row-list div {
     width: 20%;
-    text-align: center;
 }
 
 

@@ -1,46 +1,11 @@
 <?php 
+session_start();
+$_SESSION['page']="players";
 require(realpath(__DIR__) . '/templates/header.php'); 
 require('dbconnect.php');
 require('showList.php');
 ?>
 
-    <header>
-        <div class="acp">
-            <a href="admin/login.php">ACP</a>
-        </div>
-        <div class="banner">
-            <div class="container">
-                <img src="assets/img/banners/spelers_banner.png" alt="Project Fifa">
-            </div>
-        </div>
-        <div class="container">
-            <nav>
-                <ul class="row-spaced">
-                    <li><a  href="teams.php">
-                            <img class="back" src="assets/img/nav/teams2.png" alt="">
-                            <img class="front" src="assets/img/nav/teams.png" alt="">
-                        </a></li>
-                    <li><a href="wedstrijden.php">
-                            <img class="back" src="assets/img/nav/wedstrijden2.png" alt="">
-                            <img class="front" src="assets/img/nav/wedstrijden.png" alt="">
-                        </a></li>
-                    <li><a  href="index.php">
-                            <img class="back" src="assets/img/nav/home2.png" alt="">
-                            <img class="front" src="assets/img/nav/home.png" alt="">
-                        </a></li>
-                    <li><a href="poules.php">
-                            <img class="back" src="assets/img/nav/poules2.png" alt="">
-                            <img class="front" src="assets/img/nav/poules.png" alt="">
-                        </a></li>
-                    <li><a href="spelers.php">
-                            <img class="back" src="assets/img/nav/spelers2.png" alt="">
-                            <img class="front" src="assets/img/nav/spelers.png" alt="">
-                        </a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <div class="content">
         <div class="showListHeader"> Title </div>
         <div class="showListContent">
             <div class="row-list">
@@ -101,7 +66,7 @@ require('showList.php');
 
 
     foreach ($teams as $key) {
-        $playersQuery = "SELECT id, first_name, last_name, student_id, created_at FROM `tbl_players` WHERE team_id = ".$key['id'];
+        $playersQuery = "SELECT id, first_name as voornaam, last_name as achternaam, student_id as studentnummer, created_at as registratiedatum FROM `tbl_players` WHERE team_id = ".$key['id'];
         $players = $conn->query($playersQuery)->fetchAll(PDO::FETCH_ASSOC);
         $showList = new showList($key['name'], $players);
     }
