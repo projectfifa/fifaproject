@@ -64,40 +64,70 @@ li:hover .front {
 .content {
     margin: 300px 20% 300px 20%;
 }
+
+/* ----------------------------------- LIST HEADER ------------------------- */
+
 .showListHeader {
-    padding: 5px 0 5px 20px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
 
-    font-size: 30px;
+    /* dit weg halen:               */
+    margin-top: 50px;
+
+
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    padding-top: 10px;
+    font-size: 27px;
     color: white;
-
-    background: #4c565b;
-background: -webkit-linear-gradient(#4c565b 5%, #668399 91%);
-background: -o-linear-gradient(#4c565b 5%, #668399 91%);
-background: linear-gradient(#4c565b 5%, #668399 91%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#668399', endColorstr='#4c565b',GradientType=0 );
+    width: 200px;
+    text-align: center;
+    background-color: #668399;
 }
+.showListContent::before {
+    content: "";
+    height: 20px;
+    width: 100%;
+    display: block;
+    background-color: #668399;
+    border-top-right-radius: 7px;
+}
+
+
+/* ----------------------------------- LIST ROWS ------------------------- */
 
 .row-list {
     background-color: white;
-    padding: 10px 40px 10px 40px;
+    padding: 10px 0 10px 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
-.row-list:nth-child(odd) {
+.row-list:nth-child(even) {
     background-color: #dedede;
 }
 
+.row-list:first-of-type {
+    background-color: #aebdbd;
+}
+.row-list:first-of-type div {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+
+.row-list div {
+    width: 20%;
+    text-align: center;
+}
+
+
+
+
+/* ----------------------------------- LIST FOOTER ------------------------- */
+
 .showListFooter {
     height: 20px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
     background: #668399;
-background: -webkit-linear-gradient(#668399 11%, #4c565b 91%);
-background: -o-linear-gradient(#668399 11%, #4c565b 91%);
-background: linear-gradient(#668399 11%, #4c565b 91%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#668399', endColorstr='#4c565b',GradientType=0 );
 }
