@@ -13,7 +13,7 @@ if(isset($_POST['btn-login']))
 
     if($user->login($username,$password))
     {
-        $user->redirect('index.php');
+        $user->redirect('check_login.php');
     }
     else
     {

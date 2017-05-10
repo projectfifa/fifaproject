@@ -12,21 +12,19 @@ class USER
     {
         try
         {
-            $sql = "SELECT * FROM tbl_admins WHERE username=:uname LIMIT 1";
+            $sql = "SELECT * FROM `tbl_admins` WHERE username=:uname AND password=:pword";
             $query = $this->db->prepare($sql);
-            $query->execute(array(':uname'=>$username));
-            $userRow=$stmt->fetchAll(PDO::FETCH_ASSOC);
-            if($stmt->rowCount() > 0)
+            $query->execute(array(':uname'=>$username, ':pword'=>$password));
+            $rows = $query->fetchAll(PDO::FETCH_ASSOC);
+            if($query->rowCount() > 0)
             {
-                if(password_verify($password, $userRow['password']))
-                {
-                    $_SESSION['user_session'] = $userRow['user_id'];
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                $_SESSION['user_session'] = $rows['user_id'];
+                return true;
+
+            }
+            else
+            {
+                return false;
             }
         }
         catch(PDOException $e)
