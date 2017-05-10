@@ -8,7 +8,7 @@ require('showList.php');
 
         <div class="showListHeader"> Title </div>
         <div class="showListContent">
-            <div class="row-list">
+            <div class="row-list-columnheader">
                 <div> item1 </div>
                 <div> item2 </div>
                 <div> item3 </div>
@@ -68,7 +68,7 @@ require('showList.php');
     foreach ($teams as $key) {
         $playersQuery = "SELECT id, first_name as voornaam, last_name as achternaam, student_id as studentnummer, created_at as registratiedatum FROM `tbl_players` WHERE team_id = ".$key['id'];
         $players = $conn->query($playersQuery)->fetchAll(PDO::FETCH_ASSOC);
-        $showList = new showList($key['name'], $players);
+        $showList = new showList($key['name'], $players, 1, 0);
     }
 
 

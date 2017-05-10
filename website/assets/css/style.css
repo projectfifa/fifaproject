@@ -35,16 +35,16 @@ a{
 /* ==========================================================================
    HEADER
    ========================================================================== */
-.acp{
+.acp {
     background: #000;
     position: absolute;
     right: 3%;
     top: 1%;
 }
-.acp a{
+.acp a {
     color: #888;
 }
-.banner{
+.banner {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -73,10 +73,7 @@ li:hover .front {
 /* ----------------------------------- LIST HEADER ------------------------- */
 
 .showListHeader {
-
-    /* dit weg halen:               */
     margin-top: 50px;
-
 
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
@@ -99,27 +96,36 @@ li:hover .front {
 
 /* ----------------------------------- LIST ROWS ------------------------- */
 
-.row-list {
-    background-color: white;
+.row-list, .row-list-columnheader {
     padding: 10px 0 10px 0;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-.row-list:nth-child(even) {
+.row-list {
+    background-color: white;
+}
+.row-list:nth-child(odd), .row-list-match:nth-child(odd) {
     background-color: #dedede;
 }
 
-.row-list:first-of-type {
+.row-list-columnheader {
     background-color: #aebdbd;
 }
-.row-list:first-of-type div {
+.row-list-columnheader div {
     font-size: 20px;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: capitalize;
 }
 
+.row-list-match {
+    background-color: white;
+    padding: 10px 0 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 
 .row-list div {
     width: 20%;
@@ -135,4 +141,13 @@ li:hover .front {
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
     background: #668399;
+}
+
+
+/* ----------------------------------- LIST MATCHES ------------------------- */
+
+.row-list-match-team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
