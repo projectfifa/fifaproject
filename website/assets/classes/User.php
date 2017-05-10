@@ -12,9 +12,10 @@ class USER
     {
         try
         {
-            $stmt = $this->db->prepare("SELECT * FROM tbl_admins WHERE username=:uname LIMIT 1");
-            $stmt->execute(array(':uname'=>$username, ':umail'=>$umail));
-            $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
+            $sql = "SELECT * FROM tbl_admins WHERE username=:uname LIMIT 1";
+            $query = $this->db->prepare($sql);
+            $query->execute(array(':uname'=>$username));
+            $userRow=$stmt->fetchAll(PDO::FETCH_ASSOC);
             if($stmt->rowCount() > 0)
             {
                 if(password_verify($password, $userRow['password']))

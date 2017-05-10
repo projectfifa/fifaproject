@@ -5,7 +5,7 @@ session_start();
 $DB_host = "localhost";
 $DB_user = "root";
 $DB_pass = "";
-$DB_name = "tbl_admins";
+$DB_name = "project_fifa";
 
 try
 {
