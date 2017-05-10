@@ -1,4 +1,6 @@
 <?php
-include ('../assets/classes/User.php');
-logout();
+session_start();
+session_destroy();
+header("location:login.php");
+exit;
 ?>

@@ -18,9 +18,8 @@ class USER
             $rows = $query->fetchAll(PDO::FETCH_ASSOC);
             if($query->rowCount() > 0)
             {
-                $_SESSION['user_session'] = $rows['user_id'];
+                $_SESSION['user_session'] = $rows['id'];
                 return true;
-
             }
             else
             {
@@ -44,13 +43,6 @@ class USER
     public function redirect($url)
     {
         header("Location: $url");
-    }
-
-    public function logout()
-    {
-        session_destroy();
-        unset($_SESSION['user_session']);
-        return true;
     }
 }
 ?>

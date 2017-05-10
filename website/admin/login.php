@@ -1,67 +1,59 @@
 <?php
-require_once '../dbconnect.php';
+session_start();
+include('../dbconnect.php');
 
-if($user->is_loggedin()!="")
-{
-    $user->redirect('index.php');
-}
+if(isset($_POST['submit'])){
+    $errMsg = '';
 
-if(isset($_POST['btn-login']))
-{
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    if($user->login($username,$password))
-    {
-        $user->redirect('check_login.php');
-    }
-    else
-    {
-        $error = "Wrong Details !";
+    if($username == '')
+        $errMsg .= 'You must enter your Username';
+
+    if($password == '')
+        $errMsg .= 'You must enter your Password';
+
+
+    if($errMsg == ''){
+        $sql = "SELECT id,username,password FROM  `tbl_admins` WHERE username = :username AND password = :password";
+        $records = $conn->prepare($sql);
+        $records->bindParam(':username', $username);
+        $records->bindParam(':password', $password);
+        $records->execute();
+        $results = $records->fetchAll(PDO::FETCH_ASSOC);
+        if(count($results) > 0){
+
+            $_SESSION['username'] = $results[0]['username'];
+            header('location:index.php');
+        }else{
+            $errMsg .= 'Username and Password are not found';
+        }
     }
 }
+
 ?>
-    <!doctype html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Project Fifa</title>
-        <!-- you can link bootstrap if you want.   -->
-        <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 
-        <link rel="stylesheet" href="assets/css/style.css">
-    </head>
+
+<html>
+<head><title>Login Page</title></head>
 <body>
-
-<div class="container">
-    <div class="">
-        <form method="post">
-            <h2>Sign in.</h2>
-            <?php
-            if(isset($error))
-            {
-                ?>
-                <div class="">
-                    <i class=""></i> &nbsp; <?php echo $error; ?> !
-                </div>
-                <?php
-            }
-            ?>
-            <div class="form-group">
-                <input type="text" class="form-control" name="username" placeholder="Username" required />
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password" required />
-            </div>
-            <div class="clearfix"></div><hr />
-            <div class="form-group">
-                <button type="submit" name="btn-login" class="">
-                    <i class=""></i>&nbsp;SIGN IN
-                </button>
-            </div>
-        </form>
+<div align="center">
+    <div style="width:300px; border: solid 1px #006D9C; " align="left">
+        <?php
+        if(isset($errMsg)){
+            echo '<div style="color:#FF0000;text-align:center;font-size:12px;">'.$errMsg.'</div>';
+        }
+        ?>
+        <div style="background-color:#006D9C; color:#FFFFFF; padding:3px;"><b>Login</b></div>
+        <div style="margin:30px">
+            <form action="" method="post">
+                <label>Username  :</label><input type="text" name="username" class="box"/><br /><br />
+                <label>Password  :</label><input type="password" name="password" class="box" /><br/><br />
+                <input type="submit" name='submit' value="Submit" class='submit'/><br />
+            </form>
+        </div>
     </div>
 </div>
-
 </body>
 </html>
