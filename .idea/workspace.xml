@@ -43,11 +43,12 @@
       <file leaf-file-name="admin.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/website/assets/classes/admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="46" column="4" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+            <state relative-caret-position="661">
+              <caret line="61" column="34" lean-forward="true" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
               <folding>
-                <marker date="1494497160403" expanded="true" signature="216:283" ph="INSERT INTO `tbl_admins`... " />
-                <marker date="1494497160403" expanded="true" signature="699:778" ph="INSERT INTO `tbl_admins`... " />
+                <marker date="1494497892070" expanded="true" signature="216:284" ph="INSERT INTO `tbl_admins`... " />
+                <marker date="1494497892070" expanded="true" signature="700:780" ph="INSERT INTO `tbl_matches`... " />
+                <marker date="1494497892070" expanded="true" signature="1217:1314" ph="INSERT INTO `tbl_players`... " />
               </folding>
             </state>
           </provider>
@@ -57,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/website/dbconnect.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="378">
-              <caret line="18" column="2" lean-forward="true" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
+              <caret line="18" column="2" lean-forward="false" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -348,7 +349,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13274000" />
+    <option name="totallyTimeSpent" value="14096000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -560,7 +561,7 @@
     <entry file="file://$PROJECT_DIR$/website/dbconnect.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
-          <caret line="18" column="2" lean-forward="true" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
+          <caret line="18" column="2" lean-forward="false" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
           <folding />
         </state>
       </provider>
@@ -575,11 +576,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/website/assets/classes/admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="46" column="4" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+        <state relative-caret-position="661">
+          <caret line="61" column="34" lean-forward="true" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
           <folding>
-            <marker date="1494497160403" expanded="true" signature="216:283" ph="INSERT INTO `tbl_admins`... " />
-            <marker date="1494497160403" expanded="true" signature="699:778" ph="INSERT INTO `tbl_admins`... " />
+            <marker date="1494497892070" expanded="true" signature="216:284" ph="INSERT INTO `tbl_admins`... " />
+            <marker date="1494497892070" expanded="true" signature="700:780" ph="INSERT INTO `tbl_matches`... " />
+            <marker date="1494497892070" expanded="true" signature="1217:1314" ph="INSERT INTO `tbl_players`... " />
           </folding>
         </state>
       </provider>
