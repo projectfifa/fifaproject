@@ -1,67 +1,59 @@
 <?php
-	session_start();
-	
-	if (isset($_SESSION['loggedin'])) {
-		if ($_SESSION['loggedin'] != $_SERVER['REMOTE_ADDR']) {
-			session_destroy();
-			header("location: login.php");
-			exit;
-		}
-		header("location: index.php");
-		exit;
-	}
-	
-	include '../dbconnect.php';
-    $config = array(
-        "admin_user" => "admin",
-        "admin_pass" => "admin"
-    );
+session_start();
+include('../dbconnect.php');
 
-	if (isset($_POST['username']) && isset($_POST['password'])) {
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-		
-		if (strtolower($username) == strtolower($config['admin_user']) && $password == $config['admin_pass']) {
-			$_SESSION['loggedin'] = $_SERVER['REMOTE_ADDR'];
-			$_SESSION['username'] = $username;
-			$_SESSION['password'] = $password;
-			header("location: index.php");
-			exit;
-		} else {
-			$user = $conn->prepare("SELECT * FROM tbl_admins WHERE username=$username AND password=$password");
-			
-			if ($user == null) {
-				$error = "Invalid username or password";
-			} else {
-				$_SESSION['loggedin'] = $_SERVER['REMOTE_ADDR'];
-				$_SESSION['username'] = $username;
-				$_SESSION['password'] = rtrim($db->encrypt($password));
-				header("location: index.php");
-				exit;
-			}
-		}
-	}
-	
+if(isset($_POST['submit'])){
+    $errMsg = '';
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if($username == '')
+        $errMsg .= 'You must enter your Username';
+
+    if($password == '')
+        $errMsg .= 'You must enter your Password';
+
+
+    if($errMsg == ''){
+        $sql = "SELECT id,username,password FROM  `tbl_admins` WHERE username = :username AND password = :password";
+        $records = $conn->prepare($sql);
+        $records->bindParam(':username', $username);
+        $records->bindParam(':password', $password);
+        $records->execute();
+        $results = $records->fetchAll(PDO::FETCH_ASSOC);
+        if(count($results) > 0){
+
+            $_SESSION['username'] = $results[0]['username'];
+            header('location:index.php');
+        }else{
+            $errMsg .= 'Username and Password are not found';
+        }
+    }
+}
+
 ?>
-<!DOCTYPE html>
+
+
 <html>
+<head><title>Login Page</title></head>
 <body>
-	<div class="admin">
-			<h3>Sign In</h3>
-			<form action="login.php" method="post" autocomplete="off">
-				<div class="form-group">
-					<label>Username</label>
-					<input type="text" name="username" id="username" autocomplete="off" required>
-				</div>
-				<div class="form-group">
-					<label>Password</label>
-					<input type="password" name="password" class="form-control" id="password" autocomplete="off" required>
-				</div>
-				<div class="form-group">
-					<button type="submit">Sign In</button>
-				</div>
-			</form>
-		</div>
-	</div>
+<div align="center">
+    <div style="width:300px; border: solid 1px #006D9C; " align="left">
+        <?php
+        if(isset($errMsg)){
+            echo '<div style="color:#FF0000;text-align:center;font-size:12px;">'.$errMsg.'</div>';
+        }
+        ?>
+        <div style="background-color:#006D9C; color:#FFFFFF; padding:3px;"><b>Login</b></div>
+        <div style="margin:30px">
+            <form action="" method="post">
+                <label>Username  :</label><input type="text" name="username" class="box"/><br /><br />
+                <label>Password  :</label><input type="password" name="password" class="box" /><br/><br />
+                <input type="submit" name='submit' value="Submit" class='submit'/><br />
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>
