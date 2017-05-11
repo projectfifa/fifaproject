@@ -14,5 +14,6 @@ catch(PDOException $e)
 {
     echo $e->getMessage();
 }
-
+include_once 'assets/classes/admin.php';
+$user = new admin($conn);
 ?>
