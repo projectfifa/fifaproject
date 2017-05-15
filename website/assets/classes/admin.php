@@ -5,7 +5,7 @@ class admin
 
     public function __construct($conn)
     {
-        return $this->db;
+        $this->db = $conn;
     }
 
     public function setGame($team_id_a, $team_id_b)
@@ -56,6 +56,40 @@ class admin
             $stmt->execute();
 
             return $stmt;
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
+    public function setTeam($teamname)
+    {
+        try
+        {
+            $sql = "INSERT INTO `tbl_teams` (team_name) VALUES (:team_name)";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindparam(":team_name", $teamname);
+            $stmt->execute();
+
+            return $stmt;
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
+    public function getTeam($teamname)
+    {
+        try
+        {
+            $sql = "SELECT * FROM `tbl_players` WHERE EXISTS (SELECT id FROM `tbl_teams` WHERE team_name=:team_name)";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute(array(':team_name'=>$teamname));
+            $team = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $team;
+
         }
         catch(PDOException $e)
         {

@@ -1,6 +1,5 @@
 <?php
-session_start();
-include_once '../dbconnect.php';
+include '../dbconnect.php';
 if( !isset($_SESSION['username']) ) {
     header("Location: login.php");
     exit;
@@ -21,6 +20,7 @@ if( !isset($_SESSION['username']) ) {
 <div class="header">
     <div class="">
         <label><a href="logout.php"><i class=""></i>Logout</a></label>
+        <a href="team.php">teams</a>
     </div>
 </div>
 <div class="">

@@ -1,6 +1,5 @@
 <?php
-session_start();
-include('../dbconnect.php');
+require('../dbconnect.php');
 
 if(isset($_POST['submit'])){
     $errMsg = '';

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $DB_host = "localhost";
 $DB_user = "root";
 $DB_pass = "";
@@ -14,6 +14,6 @@ catch(PDOException $e)
 {
     echo $e->getMessage();
 }
-include_once 'assets/classes/admin.php';
+include ('assets/classes/admin.php');
 $user = new admin($conn);
 ?>
