@@ -1,154 +1,195 @@
-*{
-    margin: 0;
-    padding: 0;
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #0a0d15;
+}
+
+.xdebug-var-dump {
+    color: #8a8a8a;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+.content {
+    margin: 250px auto 0;
+    width: 80%;
+}
+.splitter {
+    display: inline-flex;
+    flex-direction: column;
+    width: 49%;
+}
+
+
+
+
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: #DDDDDA;
+}
+
+
+
+
+.row-spaced{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+header {
+    margin-top: 30px;
+}
+
+.acp {
+    background: #000;
+    position: absolute;
+    right: 3%;
+    top: 1%;
+}
+.acp a {
+    color: #888;
+}
+.banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.banner img {
+    width: 80%;
+    align-self: center;
+}
+.row-spaced li {
+    position: relative;
+    width: 100%;
+}
+li img {
+    position:absolute;
+    top:0;
+    left:0;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+}
+li:hover .front {
+    opacity: 0;
+}
+
+/* ==========================================================================
+   NAV
+   ========================================================================== */
+
+nav {
+    background-color: #192129;
+    border-radius: 7px;
+    margin: 20px 2% 0 2%;
+    padding: 20px 0 20px 0;
+    display: inline-flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+
+    color: white;
+    font-family: 'keepcalm';
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+.logo {
+    width: 70px;
+    height: 70px;
+    align-self: center;
+    margin-bottom: 20px;
+}
+.nav-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-list div {
+    padding: 4px 30px 3px 30px;
+}
+.nav-list div:first-of-type {
+    background-color: #243341;
+    padding: 4px 30px 3px 20px;
+    box-shadow: 0px 2px 5px 1px #13191f;
+}
+
+
+/* ==========================================================================
+   DISPLAY LIST
+   ========================================================================== */
+
+.list {
+    background-color: #243341;
+    border-radius: 15px;
+    padding-bottom: 20px;
+
+    color: white;
+    font-family: 'keepcalm';
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* ----------------------------------- LIST HEADER ------------------------- */
+
+.showListHeader {
+    font-size: 23px;
+    padding: 11px 0 11px 70px;
+}
+
+
+
+/* ----------------------------------- LIST ROWS ------------------------- */
+
+.row-list {
+    padding: 10px 30px 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #243341;
+}
+.row-list:nth-child(odd), .row-list-match:nth-child(odd) {
+    background-color: #1b242d;
+    box-shadow: inset 0 0 4px 2px #192129;
+}
+.row-list:first-of-type div {
+    font-size: 15px;
+}
+
+.row-list:hover {
+    background-color: #2a455f;
+}
+.row-list:nth-child(odd):hover {
+    background-color: #364b61;
+}
+
+.row-list div {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+/* ----------------------------------- LIST MATCHES ------------------------- */
+
+
+#row-list-match-header-img {
+    width: 50px;
+    height: 50px;
 }
-body{
-    background: url('../img/body_background.png') no-repeat;
-    background-size: 100%;
-}
-ul{
-    list-style-type: none;
-}
-a{
-    text-decoration: none;
-    color: #DDDDDA;
-}
-
-
-.container{
-    width: 80%;
-    margin: 0 auto;
-}
-.content {
-    margin: 300px auto 0;
-    width: 80%;
-}
-.row-spaced{
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    justify-content: space-around;
-}
-
-/* ==========================================================================
-   HEADER
-   ========================================================================== */
-.acp {
-    background: #000;
-    position: absolute;
-    right: 3%;
-    top: 1%;
-}
-.acp a {
-    color: #888;
-}
-.banner {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-.row-spaced li {
-    position: relative;
-    width: 100%;
-}
-li img {
-    position:absolute;
-    top:0;
-    left:0;
-    -webkit-transition: opacity 0.3s ease;
-    transition: opacity 0.3s ease;
-}
-li:hover .front {
-    opacity: 0;
-}
-
-
-/* ==========================================================================
-   DISPLAY LIST
-   ========================================================================== */
-
-
-/* ----------------------------------- LIST HEADER ------------------------- */
-
-.showListHeader {
-    margin-top: 50px;
-
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-    padding-top: 10px;
-    font-size: 27px;
-    color: white;
-    width: 200px;
-    text-align: center;
-    background-color: #668399;
-}
-.showListContent::before {
-    content: "";
-    height: 20px;
-    width: 100%;
-    display: block;
-    background-color: #668399;
-    border-top-right-radius: 7px;
-}
-
-
-/* ----------------------------------- LIST ROWS ------------------------- */
-
-.row-list, .row-list-columnheader {
-    padding: 10px 0 10px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-.row-list {
-    background-color: white;
-}
-.row-list:nth-child(odd), .row-list-match:nth-child(odd) {
-    background-color: #dedede;
-}
-
-.row-list-columnheader {
-    background-color: #aebdbd;
-}
-.row-list-columnheader div {
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: capitalize;
-}
-
-.row-list-match {
-    background-color: white;
-    padding: 10px 0 10px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.row-list div {
-    width: 20%;
-}
-
-
-
-
-/* ----------------------------------- LIST FOOTER ------------------------- */
-
-.showListFooter {
-    height: 20px;
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
-    background: #668399;
-}
-
-
-/* ----------------------------------- LIST MATCHES ------------------------- */
-
-.row-list-match-team {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-

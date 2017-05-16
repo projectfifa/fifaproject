@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Project Fifa</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/addFonts.css">
 </head>
 <body>
 <header>
@@ -73,4 +74,33 @@
         </ul>
     </div>
 </header>
+
+<nav>
+    <img class="logo" src="/" alt="logo">
+    <div class="nav-list">
+        <div>Pouls</div>
+        <div>jupilerLeague</div>
+        <div>baseball league</div>
+    </div>
+    <div class="nav-list">
+        <div>Teams</div>
+        <div>psv</div>
+        <div>ajax</div>
+        <div>nac</div>
+    </div>
+    <div class="nav-list">
+        <div>Players</div>
+        <div>Guido</div>
+        <div>Alex</div>
+        <div>bjorn</div>
+    </div>
+    <div class="nav-list">
+        <div>Games</div>
+        <div>psv</div>
+        <div>ajax</div>
+        <div>nac</div>
+    </div>
+</nav>
+
+
 <div class="content">

@@ -58,21 +58,10 @@ require('showList.php');
             </div>
         </div>
         <div class="showListFooter"></div>
-    <?php
-    
-
-    $teamsQuery = "SELECT id, poule_id, name FROM `tbl_teams`";
-    $teams = $conn->query($teamsQuery)->fetchAll(PDO::FETCH_ASSOC);
+<?php
 
 
-    foreach ($teams as $key) {
-        $playersQuery = "SELECT id, first_name as voornaam, last_name as achternaam, student_id as studentnummer, created_at as registratiedatum FROM `tbl_players` WHERE team_id = ".$key['id'];
-        $players = $conn->query($playersQuery)->fetchAll(PDO::FETCH_ASSOC);
-        $showList = new showList($key['name'], $players, 1, 0);
-    }
 
-
-    ?>
-    </div>
+?>
 
 <?php require(realpath(__DIR__) . '/templates/footer.php');
