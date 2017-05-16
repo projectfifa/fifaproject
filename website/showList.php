@@ -45,17 +45,17 @@ class showList {
             				<div>
 								<img src="assets/img/pouls/'.$row['poule'].'.png" alt="Pool" id="row-list-match-header-img">
             				</div>
-            				<div class="row-list-match-team">
+            				<div>
 								<img src="assets/img/teams/'.$row['team_A'].'.png" alt="TeamA">
 								<h3>'.$row['name_a'].'</h3>
 								<h4>'.$row['score_team_a'].'</h4>
             				</div>
-            				<div class="row-list-match-team">
+            				<div>
 								<img src="assets/img/teams/'.$row['team_B'].'.png" alt="TeamA">
 								<h3>'.$row['name_b'].'</h3>
 								<h4>'.$row['score_team_b'].'</h4>
             				</div>
-            				<div class="row-list-match-footer">'.$row['start'].'</div>
+            				<div>'.$row['start'].'</div>
         				</div>';
  				}
  				break;

@@ -78,25 +78,33 @@
 
 <nav>
     <img class="logo" src="/" alt="logo">
-    <div class="nav-list">
+    <div class="nav-list-header">
         <div>Pouls</div>
+    </div>
+    <div class="nav-list">
         <div>jupilerLeague</div>
         <div>baseball league</div>
     </div>
-    <div class="nav-list">
+    <div class="nav-list-header">
         <div>Teams</div>
+    </div>
+    <div class="nav-list">
         <div>psv</div>
         <div>ajax</div>
         <div>nac</div>
     </div>
-    <div class="nav-list">
+    <div class="nav-list-header">
         <div>Players</div>
+    </div>
+    <div class="nav-list">
         <div>Guido</div>
         <div>Alex</div>
         <div>bjorn</div>
     </div>
-    <div class="nav-list">
+    <div class="nav-list-header" onclick="document.getElementById('navListGames').style.display = 'none'">
         <div>Games</div>
+    </div>
+    <div class="nav-list" id="navListGames">
         <div>psv</div>
         <div>ajax</div>
         <div>nac</div>
