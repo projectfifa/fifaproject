@@ -43,16 +43,31 @@ class admin
             echo $e->getMessage();
         }
     }
+    public function checkPlayerId($sid)
+    {
+        $sql = "SELECT * FROM `tbl_players` WHERE student_id = :sid";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':sid', $sid);
+        $stmt->execute();
 
-    public function setPlayer($first_name, $last_name, $student_id)
+
+        if($stmt->rowCount() > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function setPlayer($sid, $fname, $lname)
     {
         try
         {
-            $sql = "INSERT INTO `tbl_players` (student_id, first_name, last_name) VALUES (:id, :firstname, :lastname)";
+            $sql = "INSERT INTO `tbl_players` (student_id, first_name, last_name) VALUES (:sid, :fname, :lname)";
             $stmt = $this->db->prepare($sql);
-            $stmt->bindparam(":id", $student_id);
-            $stmt->bindparam(":firstname", $first_name);
-            $stmt->bindparam(":lastname", $last_name);
+            $stmt->bindparam(":sid", $sid);
+            $stmt->bindparam(":fname", $fname);
+            $stmt->bindparam(":lname", $lname);
             $stmt->execute();
 
             return $stmt;
@@ -63,13 +78,53 @@ class admin
         }
     }
 
-    public function setTeam($teamname)
+    public function showUnassignedPlayers()
+    {
+        $sql = "SELECT first_name, last_name, student_id FROM `tbl_players` WHERE team_id IS NULL";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        $players = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $output = "";
+        foreach ($players as $player)
+        {
+            $fname = $player['first_name'];
+            $lname = $player['last_name'];
+            $sid =  $player['student_id'];
+
+            $output .= "<tr>";
+            $output .= "<td>" . $fname . "</td>";
+            $output .= "<td>" . $lname . "</td>";
+            $output .= "<td>" . $sid . "</td>";
+            $output .= "</tr>";
+
+
+        }
+        return $output;
+    }
+
+    public function checkTeamName($tname)
+    {
+        $sql = "SELECT * FROM `tbl_teams` WHERE team_name = :tname";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindparam(':tname', $tname);
+        $stmt->execute();
+
+
+        if($stmt->rowCount() > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function setTeam($tname)
     {
         try
         {
             $sql = "INSERT INTO `tbl_teams` (team_name) VALUES (:team_name)";
             $stmt = $this->db->prepare($sql);
-            $stmt->bindparam(":team_name", $teamname);
+            $stmt->bindparam(":team_name", $tname);
             $stmt->execute();
 
             return $stmt;
@@ -80,21 +135,17 @@ class admin
         }
     }
 
-    public function getTeam($teamname)
+    public function getTeams()
     {
-        try
+        $sql = "SELECT team_id FROM `tbl_players` WHERE team_id = NULL";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        if($stmt->rowCount() > 0)
         {
-            $sql = "SELECT * FROM `tbl_players` WHERE EXISTS (SELECT id FROM `tbl_teams` WHERE team_name=:team_name)";
-            $stmt = $this->db->prepare($sql);
-            $stmt->execute(array(':team_name'=>$teamname));
-            $team = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $team;
-
-        }
-        catch(PDOException $e)
-        {
-            echo $e->getMessage();
+            return;
         }
     }
+
+
 
 }

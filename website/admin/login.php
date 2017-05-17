@@ -1,6 +1,8 @@
 <?php
 require('../dbconnect.php');
-
+if( isset($_SESSION['username']) ) {
+    header("Location: index.php");
+}
 if(isset($_POST['submit'])){
     $errMsg = '';
 

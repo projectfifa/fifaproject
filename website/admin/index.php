@@ -20,7 +20,8 @@ if( !isset($_SESSION['username']) ) {
 <div class="header">
     <div class="">
         <label><a href="logout.php"><i class=""></i>Logout</a></label>
-        <a href="team.php">teams</a>
+        <a href="addteam.php">Add Teams</a>
+        <a href="addplayer.php">Add Players</a>
     </div>
 </div>
 <div class="">
