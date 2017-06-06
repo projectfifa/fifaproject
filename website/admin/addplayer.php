@@ -24,11 +24,33 @@ if(isset($_POST['setplayer'])) {
         $errMsg = 'This ID already exists.';
     }
 }
+
+
+if(isset($_POST['team_select'])){
+    $errMsg = '';
+    $successMsg = '';
+    $tname  = $_POST['team_select'];
+    $sid = $_POST['addtoteam'];
+    $user->addToTeam($tname, $sid);
+    if ($user->addToTeam($tname, $sid) == true)
+    {
+        $successMsg = 'Player added to team';
+    }
+    elseif($user->addToTeam($tname, $sid) != true)
+    {
+        $errMsg = 'Failed.';
+    }
+
+}
 ?>
 <html>
 <head><title>Add Player</title></head>
 <body>
 <div>
+    <a href="addteam.php">Add Teams</a>
+    <a href="addplayer.php">Add Players</a>
+    <a href="scores.php">Edit Match</a>
+    <a href="index.php">Home</a>
     <h1>Add Player</h1>
     <div>
         <?php
@@ -54,14 +76,18 @@ if(isset($_POST['setplayer'])) {
     </div>
         <h1>Unassigned Players</h1>
         <table style="width: 40%;">
+            <form action="" method="post">
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Student ID</th>
+                <th>Add To Team</th>
             </tr>
         <?php echo $user->showUnassignedPlayers(); ?>
+            </form>
         </table>
 
 </div>
+
 </body>
 </html>

@@ -22,6 +22,8 @@ if( !isset($_SESSION['username']) ) {
         <label><a href="logout.php"><i class=""></i>Logout</a></label>
         <a href="addteam.php">Add Teams</a>
         <a href="addplayer.php">Add Players</a>
+        <a href="scores.php">Edit Match</a>
+        <a href="index.php">Home</a>
     </div>
 </div>
 <div class="">

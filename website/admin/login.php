@@ -18,11 +18,11 @@ if(isset($_POST['submit'])){
 
     if($errMsg == ''){
         $sql = "SELECT id,username,password FROM  `tbl_admins` WHERE username = :username AND password = :password";
-        $records = $conn->prepare($sql);
-        $records->bindParam(':username', $username);
-        $records->bindParam(':password', $password);
-        $records->execute();
-        $results = $records->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':password', $password);
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if(count($results) > 0){
 
             $_SESSION['username'] = $results[0]['username'];

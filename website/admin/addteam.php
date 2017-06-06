@@ -27,6 +27,10 @@ if(isset($_POST['setteam'])){
 <head><title>Create Team</title></head>
 <body>
 <div >
+    <a href="addteam.php">Add Teams</a>
+    <a href="addplayer.php">Add Players</a>
+    <a href="scores.php">Edit Match</a>
+    <a href="index.php">Home</a>
     <h1>Create A Team</h1>
     <div>
         <?php
