@@ -1,20 +1,27 @@
-// navSidePanelSwitch
-toggle = 1;
-document.getElementById('errorlogthird').innerHTML = 'margin top is';
 
-// navListSwitch 
-document.getElementById('nav-list-pouls').firstChild.style.marginTop = '0px';
-document.getElementById('nav-list-teams').firstChild.style.marginTop = '0px';
-document.getElementById('nav-list-players').firstChild.style.marginTop = '0px';
-document.getElementById('nav-list-games').firstChild.style.marginTop = '0px';
+function startUpCall() {
 
-navListPoulsHeight = document.getElementById('nav-list-pouls').firstChild.offsetWidth;
-navListTeamsHeight = document.getElementById('nav-list-teams').firstChild.offsetWidth;
-navListPlayersHeight = document.getElementById('nav-list-players').firstChild.offsetWidth;
-navListGamesHeight = document.getElementById('nav-list-games').firstChild.offsetWidth;
+	// navSidePanelSwitch
+	toggle = 1;
+	
+	// navListSwitch
+	/*
+	document.getElementById('nav-list-pouls').style.height = 'inherit';
+	document.getElementById('nav-list-teams').style.height = 'inherit';
+	document.getElementById('nav-list-players').style.height = 'inherit';
+	document.getElementById('nav-list-games').style.height = 'inherit';*/
+	
+	navListPoulsHeight = document.getElementById('nav-list-pouls').offsetHeight;
+	navListTeamsHeight = document.getElementById('nav-list-teams').offsetHeight;
+	navListPlayersHeight = document.getElementById('nav-list-players').offsetHeight;
+	navListGamesHeight = document.getElementById('nav-list-games').offsetHeight;
+	
+	document.getElementById('errorlogfirst').innerHTML = navListPoulsHeight;
+	document.getElementById('errorlogsecond').innerHTML = navListTeamsHeight;
+	document.getElementById('errorlogthird').innerHTML = navListPlayersHeight;
+	document.getElementById('errorlogfourth').innerHTML = navListGamesHeight;
 
-document.getElementById('errorlogthird').innerHTML = 'margin top = ';
-document.getElementById('errorlogsecond').innerHTML = document.getElementById(a).style.marginTop;
+}
 
 
 function navSidePanelSwitch() {
@@ -35,22 +42,27 @@ function navSidePanelSwitch() {
 
 function navListSwitch(a) {
 
-	document.getElementById('errorlogfirst').innerHTML = a;
-	document.getElementById('errorlogsecond').innerHTML = document.getElementById(a).style.marginTop;
-
-	if (document.getElementById(a).firstChild.style.marginTop == '0px') {
-
+	if (document.getElementById(a).style.height != '0px') {
 		// Close
-		//document.getElementById(a).style.marginTop = '-'..'px';
-		document.getElementById(a).firstChild.style.marginTop = '-50px';
+				
+		document.getElementById(a).style.height = '0px';
 
-		document.getElementById(a).firstChild.style.opacity = '0';
 
 	} else {
 		// Opens
-		document.getElementById(a).firstChild.style.marginTop = '0px';
-		document.getElementById(a).firstChild.style.opacity = '1';
-		
-	}
+
+		switch (a) {
+			case 'nav-list-pouls':
+				document.getElementById(a).style.height = navListPoulsHeight.concat("px");
+				break;
+		}
 	
+
+	}
+
+	document.getElementById('errorlogfirst').innerHTML = "target: ".concat(a);
+	document.getElementById('errorlogsecond').innerHTML = document.getElementById(a).style.height;
+	document.getElementById('errorlogthird').innerHTML = navListPoulsHeight.concat("px");
+	document.getElementById('errorlogfourth').innerHTML = "het werkt";
+
 }

@@ -7,8 +7,54 @@
     <link rel="stylesheet" type="text/css" href="/projectfifa3/website/assets/css/addFonts.css">
     <script language="JavaScript" type="text/javascript" src="/projectfifa3/website/assets/javascript/navSidePanel.js"></script> 
 </head>
-<body>
+<body onload="startUpCall()">
+
+
+
+
+
 <header>
+    <nav id="navSidePanel">
+        <img class="logo" src="/projectfifa3/website/assets/img/nav/logo.png" alt="logo">
+    
+        <div class="nav-list-header" onclick="navListSwitch('nav-list-pouls')">
+            <div>Pouls</div>
+        </div>
+        <div class="nav-list" id="nav-list-pouls">
+            <div>jupilerLeague</div>
+            <div>baseball league</div>
+        </div>
+    
+        <div class="nav-list-header" onclick="navListSwitch('nav-list-teams')">
+            <div>Teams</div>
+        </div>
+        <div class="nav-list" id="nav-list-teams">
+            <div>psv</div>
+            <div>ajax</div>
+            <div>nac</div>
+        </div>
+    
+        <div class="nav-list-header" onclick="navListSwitch('nav-list-players')">
+            <div>Players</div>
+        </div>
+        <div class="nav-list" id="nav-list-players">
+            <div>Guido</div>
+            <div>Alex</div>
+            <div>bjorn</div>
+        </div>
+    
+        <div class="nav-list-header" onclick="navListSwitch('nav-list-games')">
+            <div>Games</div>
+        </div>
+        <div class="nav-list" id="nav-list-games">
+            <div>psv</div>
+            <div>ajax</div>
+            <div>nac</div>
+        </div>
+    </nav>
+    <div id="closeBtn" onclick="navSidePanelSwitch()">&#10006;</div>
+    
+
     <div class="acp">
         <a href="admin/login.php">ACP</a>
     </div>
@@ -55,58 +101,7 @@
 
 
 
-<?php
-    function navList($querry) {
-        require('dbconnect.php');
-        $list = $conn->query($querry)->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($list as $row) {
-            echo '<div>'.$row['team_name'].'</div>';
-        }
-    }
-            
-?>
 
-<div id="closeBtn" onclick="navSidePanelSwitch()">&#10006;</div>
-<nav id="navSidePanel">
-    <img class="logo" src="/projectfifa3/website/assets/img/" alt="logo">
-
-    <div class="nav-list-header" onclick="navListSwitch('nav-list-pouls')">
-        <div>Pouls</div>
-    </div>
-    <div class="nav-list">
-        <div id="nav-list-pouls">jupilerLeague</div>
-        <div>baseball league</div>
-
-    </div>
-
-    <div class="nav-list-header" onclick="navListSwitch('nav-list-teams')">
-        <div>Teams</div>
-    </div>
-    <div class="nav-list">
-        <div id="nav-list-teams">psv</div>
-        <div>ajax</div>
-        <div>nac</div>
-    </div>
-
-    <div class="nav-list-header" onclick="navListSwitch('nav-list-players')">
-        <div>Players</div>
-    </div>
-    <div class="nav-list">
-        <div id="nav-list-players">Guido</div>
-        <div>Alex</div>
-        <div>bjorn</div>
-    </div>
-
-    <div class="nav-list-header" onclick="navListSwitch('nav-list-games')">
-        <div>Games</div>
-    </div>
-    <div class="nav-list">
-        <div id="nav-list-games">psv</div>
-        <div>ajax</div>
-        <div>nac</div>
-    </div>
-
-</nav>
 
 
 <div class="content">
@@ -114,6 +109,7 @@
         <div id="errorlogfirst">errorlog1</div>
         <div id="errorlogsecond">errorlog2</div>
         <div id="errorlogthird">errorlog3</div>
+        <div id="errorlogfourth">errorlog4</div>
     </div>
 
     <div class="section">

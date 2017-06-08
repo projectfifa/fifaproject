@@ -7,7 +7,7 @@ public function __construct($type, $listInput) {
     switch ($type) {
     	case "team":
 
-    	var_dump($type);
+    	var_dump($listInput);
     	echo '<div class="detailsHeader"><div class="fontHeader">Details:</div></div>
     		  <div class="containerPadding"><div class="flexRow"><img src="../assets/img/pouls/'.$listInput['0']['id'].'.png" alt="Logo">
     		  <div class="fontp">'.$listInput['0']['team_name'].'</div></div>
