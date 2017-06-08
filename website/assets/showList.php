@@ -11,13 +11,13 @@ class showList {
 
 		// Header
 		echo '<div class="list">';
-		echo '<div class="showListHeader">'; echo $header; echo'</div>				
+		echo '<div class="showListHeader fontHeader">'; echo $header; echo'</div>				
 		      <div class="showListContent">';
 
 		// Columnheader
 		echo '<div class="row-list">';
 		for ($i=$negate; $i < $columnCnt; $i++) { 
- 				echo '<div>'.$arrayKeys[$i].'</div>';
+ 				echo '<div class="fontp">'.$arrayKeys[$i].'</div>';
  			}
  			echo '</div>';
 
@@ -28,12 +28,12 @@ class showList {
 
  				// Rows default
 				foreach ($list as $row) {
- 					echo '<div class="row-list">';
+ 					echo '<a class="row-list" href="/projectfifa3/website/spelers/?pageId='.$row['id'].'">';
 
  					for ($i=$negate; $i < $columnCnt; $i++) { 
- 						echo '<div>'.$row[$arrayKeys[$i]].'</div>';
+ 						echo '<div class="fontS">'.$row[$arrayKeys[$i]].'</div>';
  					}
- 					echo '</div>';
+ 					echo '</a>';
 				}
  			break;
 

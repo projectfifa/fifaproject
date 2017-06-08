@@ -55,6 +55,17 @@
 
 
 
+<?php
+    function navList($querry) {
+        require('dbconnect.php');
+        $list = $conn->query($querry)->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($list as $row) {
+            echo '<div>'.$row['team_name'].'</div>';
+        }
+    }
+            
+?>
+
 <div id="closeBtn" onclick="navSidePanelSwitch()">&#10006;</div>
 <nav id="navSidePanel">
     <img class="logo" src="/projectfifa3/website/assets/img/" alt="logo">

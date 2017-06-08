@@ -63,6 +63,7 @@ body{
 .font, .fontHeader,.fontp, .fontS {
     color: white;
     font-family: keepcalm;
+    color: white;
 }
 .fontHeader {
     font-size: 18px;
@@ -234,11 +235,7 @@ nav {
     border-radius: 15px;
     padding-bottom: 20px;
 
-    color: white;
-    font-family: 'keepcalm';
-    text-transform: uppercase;
-    font-size: 10px;
-    letter-spacing: 1px;
+
 }
 
 
@@ -268,6 +265,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     background-color: #243341;
+    text-decoration: none;
 }
 
 .row-list:nth-child(odd), .row-list-match:nth-child(odd) {
