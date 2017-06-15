@@ -2,7 +2,14 @@
 function startUpCall() {
 
 	// navSidePanelSwitch
-	toggle = 1;
+		// Open
+        document.getElementById('navSidePanel').style.left = '-3%';
+        document.getElementById('closeBtnChamberId').style.left = '9%';
+        document.getElementById('closeBtn').innerHTML = '&#10006';
+
+        document.getElementById('bannerId').style.margin = '25px 2% 25px 14%';
+        document.getElementById('contentId').style.margin = '0 2% 0 14%';
+        toggle = 1;
 	
 	// navListSwitch
 	/*
@@ -22,18 +29,38 @@ function startUpCall() {
 	document.getElementById('errorlogfourth').innerHTML = navListGamesHeight;
 
 }
-
+window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame       ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame    ||
+          function( callback ){
+            window.setTimeout(callback, 1000 / 60);
+          };
+})();
 
 function navSidePanelSwitch() {
     if (toggle == 1) {
-        document.getElementById('navSidePanel').style.left = '-11%';
-        document.getElementById('closeBtn').style.left = '2%';
+
+    	// Close
+
+        document.getElementById('navSidePanel').style.left = '-14%';
+        document.getElementById('closeBtnChamberId').style.left = '2%';
         document.getElementById('closeBtn').innerHTML = '&#x21FE';
+
+
+
+        document.getElementById('bannerId').style.margin = '25px 7% 25px 7%';
+        document.getElementById('contentId').style.margin = '0 7% 0 7%';
         toggle = 0;
     } else {
-        document.getElementById('navSidePanel').style.left = '0%';
-        document.getElementById('closeBtn').style.left = '9%';
+
+    	// Open
+        document.getElementById('navSidePanel').style.left = '-3%';
+        document.getElementById('closeBtnChamberId').style.left = '9%';
         document.getElementById('closeBtn').innerHTML = '&#10006';
+
+        document.getElementById('bannerId').style.margin = '25px 2% 25px 14%';
+        document.getElementById('contentId').style.margin = '0 2% 0 14%';
         toggle = 1;
     }
 }

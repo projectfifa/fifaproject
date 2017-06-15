@@ -1,13 +1,15 @@
 <?php
 class showList {
 
-	public function __construct($nameInput, $listInput, $negate, $type) {
+	public function __construct($nameInput, $listInput, $negate, $type, $link) {
 		$header = $nameInput;
 		$list = $listInput;
 		$arrayKeys = array_keys($list[0]);
 		$columnCnt = count($list[0]);
 
-		//var_dump($list);
+
+
+
 
 		// Header
 		echo '<div class="list">';
@@ -15,7 +17,7 @@ class showList {
 		      <div class="showListContent">';
 
 		// Columnheader
-		echo '<div class="row-list">';
+		echo '<div class="row-list" id="clmnHeader">';
 		for ($i=$negate; $i < $columnCnt; $i++) { 
  				echo '<div>'.$arrayKeys[$i].'</div>';
  			}
@@ -28,12 +30,12 @@ class showList {
 
  				// Rows default
 				foreach ($list as $row) {
- 					echo '<div class="row-list">';
+ 					echo '<a class="row-list" href="/projectfifa3/website/'.$link.'/?pageId='.$row['id'].'" id="removeLinkStyle">';
 
  					for ($i=$negate; $i < $columnCnt; $i++) { 
  						echo '<div>'.$row[$arrayKeys[$i]].'</div>';
  					}
- 					echo '</div>';
+ 					echo '</a>';
 				}
  			break;
 
@@ -41,22 +43,22 @@ class showList {
 
  				// Rows match
  				foreach ($list as $row) {
- 				  echo '<div class="row-list">
+ 				  echo '<a class="row-list" href="/projectfifa3/website/wedstrijden/?pageId='.$row['id'].'" id="removeLinkStyle">
             				<div>
-								<img src="assets/img/pouls/'.$row['poule'].'.png" alt="Pool" id="row-list-match-header-img">
+            					<svg width="50" height="50" data-jdenticon-hash="'.hash("md5", $row['poule_name'] * 5).'"></svg>
             				</div>
             				<div>
-								<img src="assets/img/teams/'.$row['team_A'].'.png" alt="TeamA">
+            					<svg width="50" height="50" data-jdenticon-hash="'.hash("md5", $row['name_a']).'"></svg>
 								<h3>'.$row['name_a'].'</h3>
 								<h4>'.$row['score_team_a'].'</h4>
             				</div>
             				<div>
-								<img src="assets/img/teams/'.$row['team_B'].'.png" alt="TeamA">
+            					<svg width="50" height="50" data-jdenticon-hash="'.hash("md5", $row['name_b']).'"></svg>
 								<h3>'.$row['name_b'].'</h3>
 								<h4>'.$row['score_team_b'].'</h4>
             				</div>
             				<div>'.$row['start'].'</div>
-        				</div>';
+        				</a>';
  				}
  				break;
  		}

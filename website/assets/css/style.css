@@ -5,57 +5,181 @@
 body{
     background-color: #f1f1f1;
 }
-.xdebug-var-dump, #errorlogfirst, #errorlogsecond, #errorlogthird, .errorlog {
+
+.content {
+    margin: 0 2% 0 14%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.pageTransition {
+    transition: all cubic-bezier(0.49, -0.4, 0.79, 0.34) 500ms;
+}
+.xdebug-var-dump, #errorlogfirst, #errorlogsecond, #errorlogthird, #errorlogfourth, .errorlog {
     color: #8a8a8a;
 }
+#rmvPadTop {
+    padding-top: 0;
+}
 
-
-
+.errorMsg {
+    padding: 30px 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #dcdbdb;
+    text-align: center;
+    text-transform: uppercase;
+    color: black;
+}
 
 
 /* - Flex - */
 
-.flexRow {
+.flexRow, .flexRowCenter {
     display: flex;
     align-items: center;
     flex-direction: row;
 }
 
-
-/* - border - */
-.section, .sectionLeft, .showDetails, .showListHeader, .showListContent, .banner img {
-    border: 1px solid #dcdbdb;
+.flexRowCenter {
+    justify-content: space-around;
 }
 
 
-.content {
-    margin: 0 2% 0 14%;
+.flexCol {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
-.splitter {
-    display: inline-flex;
-    flex-direction: column;
-    width: 49%;
+/* - Remove default link styling - */
+
+#removeLinkStyle {
+    text-decoration: none;
+    color: #383842;
 }
-.containerPadding {
-    padding: 15px;
-}
+
+
+
+
+/* -- SECTION -- */
+
 
 .section {
     padding: 15px;
     width: 100%;
 }
-.section, .sectionLeft, .showDetails {
+.section, .sectionLeft, .showDetails, .sectionHalf, .sectionMiddle {
     background-color: #fff;
-    margin-top: 25px;
+    margin-bottom: 25px;
     box-shadow: 0 0 3px 1px #e6e5e5;
+    transition: all ease 300ms;
 }
+
+
+/* - border - */
+.section, .sectionLeft, .showDetails, .sectionMiddleHeader, .showListHeader, .showListContent, .banner img, .detailsContent, .sectionMiddle {
+    border: 1px solid #dcdbdb;
+}
+
+.centerPage {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.sectionMiddle {
+    align-self: center;
+    width: 60%;
+}
+.sectionMiddle .sectionHalfPadding:first-of-type {
+    padding-bottom: 0;
+}
+.sectionMiddleHeader {
+    border-bottom: 0;
+    background-color: white;
+}
+.sectionMiddleHeader .flexCol div {
+    margin: 10px 0;
+}
+
+
+.sectionMiddleHalf {
+    display: flex;
+}
+.sectionMiddleHalf .list {
+    width: 50%;
+}
+
+
+.sectionHalf {
+    width: 49%;
+    align-self: flex-start;
+    transition: all ease 200ms;
+}
+
+
+/* - HOVER EFFECTS - */
+.sectionHalf:hover, .sectionLeft:hover, .sectionMiddle:hover, .section:hover {
+    background-color: #d6e5ea;
+}
+.matchesClr:hover {
+    
+    background-color: #dfead6;
+}
+.teamsClr:hover {
+    
+    background-color: #e0ca8a;
+}
+.playersClr:hover {
+    background-color: #eadcd6;
+    
+}
+
+
+.row-list:hover, .row-list:nth-child(odd):hover {
+    background-color: #c4e5f5;
+}
+.matchesClr .row-list:hover, .matchesClr .row-list:nth-child(odd):hover {
+    background-color: #afd2a9;
+}
+.teamsClr .row-list:hover, .teamsClr .row-list:nth-child(odd):hover {
+    background-color: #e0b335;
+}
+.playersClr .row-list:hover, .playersClr .row-list:nth-child(odd):hover {
+    background-color: #e8cfc9;
+}
+
+
+#nav-list-pouls, .poulsClr .detailsHeader {
+    background-color: #216c90;
+}
+#nav-list-teams, .teamsClr .detailsHeader {
+    background-color: #b39131;
+}
+#nav-list-players, .playersClr .detailsHeader {
+    background-color: #5b8844;
+}
+
+    
+#nav-list-pouls:hover {
+    background-color: #289bd2;
+}
+#nav-list-teams:hover {
+    background-color: #d4a31a;
+}
+#nav-list-players:hover {
+    background-color: #45ab43;
+}
+
+
+.sectionHalfPadding {
+    padding: 15px;
+}
+
 
 .sectionLeft {
     width: 73%;
+    transition: all ease 200ms;
 }
 .showDetails {
     width: 25%;
@@ -66,12 +190,12 @@ body{
 /* --------------------- TEXT ------------------ */
 
 .font, .fontHeader,.fontp, .fontS {
-    color: white;
     font-family: keepcalm;
 }
 .fontHeader {
-    font-size: 18px;
+    font-size: 23px;
     letter-spacing: 1px;
+    font-weight: 600;
 }
 .fontp {
     font-size: 14px;
@@ -90,18 +214,31 @@ body{
 
 
 .acp {
+    background-color: #23282d;
+    box-shadow: inset -2px 0px 4px 2px #1d2125;
     position: absolute;
-    right: 3%;
-    top: 32px;
-    padding: 3px;
+    bottom: 0;
+    width: 100%;
+    text-decoration: none;
+    transition: all ease 200ms;
 }
-
-.acp a {
-    color: #e8e3d8;
+.acp div {
+    color: #5b6167;
+    font-family: keepcalm;
+    font-size: 10px;
+    margin: 6px 0 5px 65px;
+    text-transform: capitalize;
+    transition: all ease 200ms;
+}
+.acp:hover {
+    background-color: #1b2025;
+}
+.acp:hover div {
+    color: #fff;
 }
 
 .banner {
-    margin: 25px 2% 0 14%;
+    margin: 25px 2% 25px 14%;
     display: flex;
 }
 
@@ -137,45 +274,103 @@ li:hover .front {
 
 nav {
     background-color: #32373c;
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     position: fixed;
     top: 0;
     height: 100%;
     box-shadow: inset -3px 0px 4px 2px #2d3135;
-    width: 12%;
-    transition: all ease 300ms;
-    left: 0;
+    width: 15%;
 }
 
+
+.closeBtnChamber {
+    position: fixed;
+    bottom: 5px;
+    left: 9%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.closeBtnCircle {
+    padding: 5px;
+    width: 20px;
+    border-radius: 30px;
+    box-shadow: 0 3px 3px 2px #272b2f;
+    
+    cursor: pointer;
+    background-color: #636b6f;
+    transition: all ease 300ms;
+}
 #closeBtn {
     color: #192129;
-    width: inherit;
-    height: inherit;
-    position: fixed;
     font-size: 20px;
     line-height: 20px;
-    padding: 5px;
-    background-color: #334454;
-    border-radius: 30px;
-    box-shadow: 4px 2px 3px 0px #0f161d;
+    text-align: center;
+    transition: all ease 300ms;
+}
+.closeBtnCircle:hover {
+    width: 25px;
+    background-color: #838a8e;
+}
+.closeBtnCircle:hover #closeBtn {
+    line-height: 25px;
+}
+
+/* ------------- LOGO ---------------- */
+.logo {
+    width: 50%;
+    padding-bottom: 50%;
+    align-self: center;
+    position: relative;
+    margin: 40px 0 30px 20%;
+}
+.logocircle {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #216c90;
+    border-radius: 80px;
+    transition: all ease 200ms;
+}
+.logoimg {
+    background-image: url(/projectfifa3/website/assets/img/nav/logo.png);
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
     transition: all ease 300ms;
     cursor: pointer;
-    bottom: 15px;
-    left: 9%;
-    z-index: 1;
+    border-radius: 100px;
 }
-#closeBtn:hover {
-    color: #c8d4d4;
-    padding: 7px;
+
+.logoimg:hover {
+    background-size: 90%;
+}
+.logocircle:hover {
+    background-color: #289bd2;
 }
 
 
-.logo {
-    width: 60%;
-    align-self: center;
-    margin: 40px 0 30px 0;
+/* ------------- nav list ---------------- */
+
+
+.nav-list-header {
+    padding: 5px 30px 6px 30%;
+    text-transform: capitalize;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #e8e3d8;
+    font-family: 'keepcalm';
+    transition: all ease 150ms;
+    text-decoration: none;
 }
+
+
 
 .nav-list {
     display: flex;
@@ -188,38 +383,23 @@ nav {
     overflow-y: hidden;
     background-color: #23282d;
     box-shadow: inset -2px 0px 4px 2px #1d2125;
+
 }
-
-
-.nav-list div {
-    padding: 5px 30px 5px 40px;
+.nav-list a {
+    padding: 3px 0 3px 37%;
     color: #bdb7b3;
     font-family: 'keepcalm';
     text-transform: capitalize;
-    font-size: 10px;
-    letter-spacing: 1px;
-    transition: all ease 200ms;
+    font-size: 11px;
+    text-decoration: none;
 }
-.nav-list div:hover {
-    background-color: #2f271d;
-}
-.nav-list-header {
-    background-color: #216c90;
-    padding: 5px 30px 6px 25px;
-    text-transform: capitalize;
-    font-size: 12px;
-    letter-spacing: 1px;
-    color: #e8e3d8;
-    font-family: 'keepcalm';
-    transition: all ease 100ms;
-}
-.nav-list-header:hover {
-    background-color: #289bd2;
+.nav-list div:hover, .nav-list a:hover {
+    background-color: #1b2025;
+    color: #fff;
 }
 
-.nav-list-pouls {
-    display: flex;
-}
+
+
 
 
 /* ==========================================================================
@@ -232,29 +412,30 @@ nav {
 
 .list {
     background-color: #ffffff;
-    padding-bottom: 20px;
-
-    color: #afa8a8;
     font-family: 'keepcalm';
     font-size: 10px;
-    letter-spacing: 1px;
+    transition: all ease 300ms;
 }
-
+.list:hover {
+    box-shadow: 0 0 4px 0px #bbd0da;
+}
 
 
 /* ----------------------------------- LIST HEADER ------------------------- */
 
 
 
-.showListHeader {
+.showListHeader, .detailsHeader {
     padding: 11px 0 11px 50px;
     font-size: 20px;
-    color: #23282d;
     border-bottom: 0px solid #f9f9f9;
 }
 
 
-
+#clmnHeader {
+    font-size: 15px;
+    text-transform: capitalize;
+}
 
 
 
@@ -268,6 +449,10 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: all ease 100ms;
+}
+
+.row-list:nth-child(even) {
     background-color: #fff;
 }
 
@@ -275,18 +460,8 @@ nav {
     background-color: #f9f9f9;
 }
 
-.row-list:first-of-type div {
-    font-size: 15px;
-}
-
-
-
-.row-list:hover {
-    background-color: #2a455f;
-}
-
-.row-list:nth-child(odd):hover {
-    background-color: #364b61;
+#clmnHeader:hover {
+    background-color: #f9f9f9;
 }
 
 
@@ -302,17 +477,6 @@ nav {
 
 
 
-/* ----------------------------------- LIST MATCHES ------------------------- */
-
-
-#row-list-match-header-img {
-    width: 50px;
-    height: 50px;
-}
-
-
-
-
 
 
 /* ==========================================================================
@@ -320,17 +484,19 @@ nav {
    DISPLAY DETAILS
 
    ========================================================================== */
-.detailsHeader {
-    width: 100%;
-    background-color: #243341;
-}
-.detailsHeader div {
-    padding: 7px 0 7px 25px;
+
+.showDetails {
+    color: #243341;
 }
 
-.showDetails img {
-    width: 50px;
-    margin-right: 15px;
+
+.detailsHeader {
+    color: #fff;
+    font-family: keepcalm;
+}
+
+.showDetails svg {
+    margin-right: 20px;
 }
 .detailsImg {
     display: flex;
@@ -340,4 +506,16 @@ nav {
 .detailsFooter {
     background-color: #171d23;
     padding: 10px;
+    color: #fff;
+}
+
+
+.detailsContent {
+    padding: 20px 12%;
+}
+.detailsList {
+    margin-top: 25px;
+}
+.detailsList div {
+    margin-bottom: 15px;
 }
